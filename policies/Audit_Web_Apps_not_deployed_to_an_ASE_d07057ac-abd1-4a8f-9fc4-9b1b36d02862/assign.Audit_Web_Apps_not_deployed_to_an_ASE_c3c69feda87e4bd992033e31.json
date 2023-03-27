@@ -1,0 +1,26 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Audit Web Apps not deployed to an ASE",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/d07057ac-abd1-4a8f-9fc4-9b1b36d02862",
+  "scope": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82",
+  "notScopes": [],
+  "parameters": {},
+  "description": "",
+  "metadata": {
+   "assignedBy": "Adam Hoffmeister",
+   "parameterScopes": {},
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-02T15:09:52.7829313Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyAssignments/c3c69feda87e4bd992033e31",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "c3c69feda87e4bd992033e31"
+}

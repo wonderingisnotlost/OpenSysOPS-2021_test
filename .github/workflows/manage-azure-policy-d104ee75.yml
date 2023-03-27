@@ -1,0 +1,70 @@
+name: manage-azure-policy-d104ee75
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/SQL-FirewallRules-Audit_d5908587-c127-4886-a475-3ac43846cac5/**'
+#      - 'policies/Audit_Web_Apps_not_deployed_to_an_ASE_d07057ac-abd1-4a8f-9fc4-9b1b36d02862/**'
+#      - 'policies/StorageAccount-FirewallRules-DeployifNotExist_af9158d0-c4e8-4a6d-9e86-4181a4422260/**'
+#      - 'policies/Audit_VM_Disk_Encryption_ac4d7556-1938-46f8-b091-510a0442cac2/**'
+#      - 'policies/Modify_Tag_Manipulation_896053a6-d4ae-455b-841b-7a683e42118b/**'
+#      - 'policies/Required_Business_Owner_Email_tag_on_Resource_Groups_81c1b4a3-5921-45dd-aa5a-392d3f95c462/**'
+#      - 'policies/Required_Technical_Owner_Email_tag_on_Resource_Groups_81c1b4a3-5921-45dd-aa5a-392d3f95c45a/**'
+#      - 'policies/Required_Tag_BusinessUnit_on_Resource_groups_80f7b8c0-de13-400b-aab3-dd8d0e01b8b5/**'
+#      - 'policies/Deny_App_Services_not_using_ASE_azase-omf-emsdev-001_671d8a5b-caf7-46ca-9cce-4b8e9beb281c/**'
+#      - 'policies/Deny_Web_Apps_not_deployed_to_an_ASE_623d0438-b7eb-46d7-8868-fa876b0ceac1/**'
+#      - 'policies/Require_specified_tag_Project_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56effc/**'
+#      - 'policies/Require_specified_tag_ApplicationRole_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e80c/**'
+#      - 'policies/Require_specified_tag_ServiceNowRequest_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e804/**'
+#      - 'policies/Require_specified_tag_Name_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e7fc/**'
+#      - 'policies/Require_specified_tag_MaintenanceWindow_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e7f4/**'
+#      - 'policies/Ensure_storage_file_encryption_2c9d0450-04e1-4005-aa24-1be00e306e4a/**'
+#      - 'policies/Audit_route_tables_for_0.0.0.0/0_next_hop_Internet_2483843c-de48-4023-9606-88657c60d092/**'
+#      - 'policies/Allowed_virtual_machine_size_SKUs_cccc23c7-8427-4f53-ad12-b6a63eb452b3/**'
+#      - 'policies/Azure_VPN_gateways_should_not_use_basic_SKU_e345b6c3-24bd-4c93-9bbb-7e5e49a17b78/**'
+#      - 'policies/Azure_Monitor_should_collect_activity_logs_from_all_regions_41388f1c-2db0-4c25-95b2-35d7f5ccbfa9/**'
+#      - .github/workflows/manage-azure-policy-d104ee75.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_d104ee75}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/SQL-FirewallRules-Audit_d5908587-c127-4886-a475-3ac43846cac5/**
+          policies/Audit_Web_Apps_not_deployed_to_an_ASE_d07057ac-abd1-4a8f-9fc4-9b1b36d02862/**
+          policies/StorageAccount-FirewallRules-DeployifNotExist_af9158d0-c4e8-4a6d-9e86-4181a4422260/**
+          policies/Audit_VM_Disk_Encryption_ac4d7556-1938-46f8-b091-510a0442cac2/**
+          policies/Modify_Tag_Manipulation_896053a6-d4ae-455b-841b-7a683e42118b/**
+          policies/Required_Business_Owner_Email_tag_on_Resource_Groups_81c1b4a3-5921-45dd-aa5a-392d3f95c462/**
+          policies/Required_Technical_Owner_Email_tag_on_Resource_Groups_81c1b4a3-5921-45dd-aa5a-392d3f95c45a/**
+          policies/Required_Tag_BusinessUnit_on_Resource_groups_80f7b8c0-de13-400b-aab3-dd8d0e01b8b5/**
+          policies/Deny_App_Services_not_using_ASE_azase-omf-emsdev-001_671d8a5b-caf7-46ca-9cce-4b8e9beb281c/**
+          policies/Deny_Web_Apps_not_deployed_to_an_ASE_623d0438-b7eb-46d7-8868-fa876b0ceac1/**
+          policies/Require_specified_tag_Project_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56effc/**
+          policies/Require_specified_tag_ApplicationRole_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e80c/**
+          policies/Require_specified_tag_ServiceNowRequest_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e804/**
+          policies/Require_specified_tag_Name_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e7fc/**
+          policies/Require_specified_tag_MaintenanceWindow_on_resource_groups_57bc9d35-4ba1-42ca-a887-05d3fe56e7f4/**
+          policies/Ensure_storage_file_encryption_2c9d0450-04e1-4005-aa24-1be00e306e4a/**
+          policies/Audit_route_tables_for_0.0.0.0/0_next_hop_Internet_2483843c-de48-4023-9606-88657c60d092/**
+          policies/Allowed_virtual_machine_size_SKUs_cccc23c7-8427-4f53-ad12-b6a63eb452b3/**
+          policies/Azure_VPN_gateways_should_not_use_basic_SKU_e345b6c3-24bd-4c93-9bbb-7e5e49a17b78/**
+          policies/Azure_Monitor_should_collect_activity_logs_from_all_regions_41388f1c-2db0-4c25-95b2-35d7f5ccbfa9/**

@@ -1,0 +1,36 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "StorageAccount-FirewallRules-DeployifNotExist",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/af9158d0-c4e8-4a6d-9e86-4181a4422260",
+  "scope": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82",
+  "notScopes": [
+   "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262/resourceGroups/az-daas-dev-001",
+   "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262/resourceGroups/az-admin-dev-001/providers/Microsoft.Storage/storageAccounts/stadmintestnetwork",
+   "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262/resourceGroups/az-eds-dev-001/providers/Microsoft.Storage/storageAccounts/stedsdev002",
+   "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262/resourceGroups/az-eds-dev-001/providers/Microsoft.Storage/storageAccounts/stedsdev003",
+   "/subscriptions/f7ad9311-049f-4e1b-959b-cbb7d203544e/resourceGroups/az-eds-prod-001/providers/Microsoft.Storage/storageAccounts/stedsprod002",
+   "/subscriptions/f7ad9311-049f-4e1b-959b-cbb7d203544e/resourceGroups/az-eds-prod-001/providers/Microsoft.Storage/storageAccounts/stedsprod003",
+   "/subscriptions/f7ad9311-049f-4e1b-959b-cbb7d203544e/resourceGroups/az-eds-prod-001/providers/Microsoft.Storage/storageAccounts/stedsprod004",
+   "/subscriptions/f7ad9311-049f-4e1b-959b-cbb7d203544e/resourceGroups/az-eds-prod-001/providers/Microsoft.Storage/storageAccounts/stedsprod005",
+   "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262/resourceGroups/az-eds-dev-001/providers/Microsoft.Storage/storageAccounts/stedsdev004"
+  ],
+  "parameters": {},
+  "description": "",
+  "metadata": {
+   "assignedBy": "Adam Hoffmeister",
+   "parameterScopes": {},
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-05-14T13:41:17.1583278Z",
+   "updatedBy": "7a0bbf78-6bc2-4b1b-8109-319b4e575012",
+   "updatedOn": "2021-03-09T20:46:08.0299073Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyAssignments/c12365126189469686f9b10e",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "c12365126189469686f9b10e"
+}

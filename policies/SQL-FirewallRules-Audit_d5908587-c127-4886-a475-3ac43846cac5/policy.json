@@ -1,0 +1,56 @@
+{
+ "properties": {
+  "displayName": "SQL-FirewallRules-Audit",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "SQL",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-05-14T15:42:12.2134628Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "field": "type",
+    "equals": "Microsoft.Sql/servers"
+   },
+   "then": {
+    "effect": "audit",
+    "details": {
+     "type": "Microsoft.Sql/servers/firewallRules",
+     "existenceCondition": {
+      "allOf": [
+       {
+        "not": {
+         "anyOf": [
+          {
+           "field": "Microsoft.Sql/servers/firewallRules/startIpAddress",
+           "equals": "32.66.32.1"
+          },
+          {
+           "field": "Microsoft.Sql/servers/firewallRules/startIpAddress",
+           "equals": "32.66.32.133"
+          },
+          {
+           "field": "Microsoft.Sql/servers/firewallRules/endIpAddress",
+           "equals": "32.66.32.5"
+          },
+          {
+           "field": "Microsoft.Sql/servers/firewallRules/endIpAddress",
+           "equals": "32.66.32.137"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/d5908587-c127-4886-a475-3ac43846cac5",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d5908587-c127-4886-a475-3ac43846cac5"
+}

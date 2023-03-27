@@ -1,0 +1,54 @@
+{
+ "properties": {
+  "displayName": "Required Business Owner Email tag on Resource Groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "OMF Business Owner Email -  RG",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-08T17:33:49.5353049Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "namePattern": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Pattern matching",
+     "description": "Pattern to use for names. Can include wildcard (*)."
+    }
+   },
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "tagName",
+     "description": "Business Owner Email Address"
+    },
+    "defaultValue": "BusinessOwnerEmail"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "not": {
+       "field": "[concat('tags[',parameters('tagName'), ']')]",
+       "like": "[parameters('namePattern')]"
+      }
+     },
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/81c1b4a3-5921-45dd-aa5a-392d3f95c462",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "81c1b4a3-5921-45dd-aa5a-392d3f95c462"
+}

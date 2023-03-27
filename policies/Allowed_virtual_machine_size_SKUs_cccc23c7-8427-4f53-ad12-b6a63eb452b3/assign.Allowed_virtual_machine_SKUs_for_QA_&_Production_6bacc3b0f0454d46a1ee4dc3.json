@@ -1,0 +1,58 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Allowed virtual machine SKUs for QA & Production",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+  "scope": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82",
+  "notScopes": [
+   "/providers/Microsoft.Management/managementGroups/Development",
+   "/providers/Microsoft.Management/managementGroups/Integration",
+   "/providers/Microsoft.Management/managementGroups/Technology-EMS-Dev",
+   "/providers/Microsoft.Management/managementGroups/Technology-EMS-Prod",
+   "/subscriptions/eb450268-987a-4ba9-becb-1a159f3042cf"
+  ],
+  "parameters": {
+   "listOfAllowedSKUs": {
+    "value": [
+     "standard_b8ms",
+     "standard_b4ms",
+     "standard_b2s",
+     "standard_b2ms",
+     "standard_b16ms",
+     "standard_d4s_v3",
+     "standard_d2s_v3",
+     "standard_d8s_v3",
+     "standard_d16s_v3",
+     "standard_d16ds_v5",
+     "standard_d8_v5",
+     "standard_d8s_v5",
+     "standard_d2s_v5",
+     "standard_d2s_v4",
+     "standard_d8as_v4",
+     "standard_d2as_v4",
+     "standard_d2ads_v5",
+     "standard_d2ds_v5",
+     "standard_b1ms"
+    ]
+   }
+  },
+  "description": "Allowed virtual machine SKUs for  QA & Production",
+  "metadata": {
+   "assignedBy": "ADAM HOFFMEISTER",
+   "parameterScopes": {
+    "listOfAllowedSKUs": "/subscriptions/d66fba02-40e1-4922-8bbe-e87baadf1262"
+   },
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-02T13:50:56.9742514Z",
+   "updatedBy": "25b9e8c8-2dd4-4eca-a766-6abc8a169cd0",
+   "updatedOn": "2023-02-17T19:44:00.6354519Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyAssignments/6bacc3b0f0454d46a1ee4dc3",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "6bacc3b0f0454d46a1ee4dc3"
+}

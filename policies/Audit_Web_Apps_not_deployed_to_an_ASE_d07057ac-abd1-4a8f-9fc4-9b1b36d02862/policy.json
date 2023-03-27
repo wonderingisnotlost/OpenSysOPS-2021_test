@@ -1,0 +1,36 @@
+{
+ "properties": {
+  "displayName": "Audit Web Apps not deployed to an ASE",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Audit Web Apps that have not been deployed to an ASE",
+  "metadata": {
+   "category": "App Service",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2019-11-05T18:23:08.8881293Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Web/sites"
+     },
+     {
+      "field": "Microsoft.Web/sites/hostingEnvironmentProfile",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/d07057ac-abd1-4a8f-9fc4-9b1b36d02862",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d07057ac-abd1-4a8f-9fc4-9b1b36d02862"
+}

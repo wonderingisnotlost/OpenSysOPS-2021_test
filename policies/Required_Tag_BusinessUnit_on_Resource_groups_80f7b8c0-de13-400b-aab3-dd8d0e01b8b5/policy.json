@@ -1,0 +1,56 @@
+{
+ "properties": {
+  "displayName": "Required Tag BusinessUnit on Resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Required Tag BusinessUnit on Resource groups",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-08T19:35:28.3370084Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "Name of the tag, such as 'BusinessUnit'"
+    }
+   },
+   "tagValue": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Tag Value",
+     "description": "Value of the tag, such as 'Technology'"
+    },
+    "allowedValues": [
+     "Technology",
+     "Finance",
+     "Marketing"
+    ]
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "notIn": "[parameters('tagValue')]"
+     },
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/80f7b8c0-de13-400b-aab3-dd8d0e01b8b5",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "80f7b8c0-de13-400b-aab3-dd8d0e01b8b5"
+}

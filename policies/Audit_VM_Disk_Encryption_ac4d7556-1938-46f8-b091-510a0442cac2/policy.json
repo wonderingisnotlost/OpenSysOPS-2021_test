@@ -1,0 +1,44 @@
+{
+ "properties": {
+  "displayName": "Audit VM Disk Encryption",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Audit VM's for disk Encryption w/ Azure Key Vault",
+  "metadata": {
+   "category": "Compute",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-05-14T17:08:25.5251182Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Compute/disks"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.Compute/disks/encryptionSettingsCollection.enabled",
+        "exists": "false"
+       },
+       {
+        "field": "Microsoft.Compute/disks/encryptionSettingsCollection.enabled",
+        "equals": "false"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/ac4d7556-1938-46f8-b091-510a0442cac2",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "ac4d7556-1938-46f8-b091-510a0442cac2"
+}

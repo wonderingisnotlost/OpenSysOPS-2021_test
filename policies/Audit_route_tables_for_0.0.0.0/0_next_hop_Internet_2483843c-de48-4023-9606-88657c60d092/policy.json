@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "Audit route tables for 0.0.0.0/0 next hop Internet",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Audit route tables for 0.0.0.0/0 next hop Internet",
+  "metadata": {
+   "category": "Network",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-02T14:59:44.7226332Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/routeTables"
+     },
+     {
+      "count": {
+       "field": "Microsoft.Network/routeTables/routes[*]",
+       "where": {
+        "allOf": [
+         {
+          "field": "Microsoft.Network/routeTables/routes[*].addressPrefix",
+          "equals": "0.0.0.0/0"
+         },
+         {
+          "field": "Microsoft.Network/routeTables/routes[*].nextHopType",
+          "equals": "Internet"
+         }
+        ]
+       }
+      },
+      "greaterOrEquals": 1
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/2483843c-de48-4023-9606-88657c60d092",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "2483843c-de48-4023-9606-88657c60d092"
+}

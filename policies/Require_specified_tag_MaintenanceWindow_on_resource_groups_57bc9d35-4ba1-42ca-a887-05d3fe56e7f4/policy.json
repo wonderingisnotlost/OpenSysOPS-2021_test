@@ -1,0 +1,44 @@
+{
+ "properties": {
+  "displayName": "Require specified tag: MaintenanceWindow on resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Enforces existence of a tag: MaintenanceWindow on resource groups.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-04-08T19:40:47.9986548Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/57bc9d35-4ba1-42ca-a887-05d3fe56e7f4",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "57bc9d35-4ba1-42ca-a887-05d3fe56e7f4"
+}

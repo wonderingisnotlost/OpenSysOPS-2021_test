@@ -1,0 +1,49 @@
+{
+ "properties": {
+  "displayName": "Deny App Services not using ASE azase-omf-emsdev-001",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Deny App Services not using ASE. Checks the hostingenvironments property on App Services",
+  "metadata": {
+   "category": "App Service",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2019-10-28T18:53:26.8356784Z",
+   "updatedBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "updatedOn": "2019-10-28T20:35:25.61204Z"
+  },
+  "parameters": {
+   "effectType": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Web/sites"
+     },
+     {
+      "field": "microsoft.web/hostingenvironments/name",
+      "Equals": "azase-omf-emsdev-001"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effectType')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/671d8a5b-caf7-46ca-9cce-4b8e9beb281c",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "671d8a5b-caf7-46ca-9cce-4b8e9beb281c"
+}

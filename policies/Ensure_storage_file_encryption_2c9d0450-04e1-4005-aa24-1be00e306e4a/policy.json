@@ -1,0 +1,36 @@
+{
+ "properties": {
+  "displayName": "Ensure storage file encryption",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Ensure storage file encryption - https://docs.microsoft.com/en-us/azure/governance/policy/samples/ensure-storage-file-encryption",
+  "metadata": {
+   "category": "Storage",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-03-31T16:52:21.3075103Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "field": "Microsoft.Storage/storageAccounts/enableFileEncryption",
+      "equals": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/2c9d0450-04e1-4005-aa24-1be00e306e4a",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "2c9d0450-04e1-4005-aa24-1be00e306e4a"
+}

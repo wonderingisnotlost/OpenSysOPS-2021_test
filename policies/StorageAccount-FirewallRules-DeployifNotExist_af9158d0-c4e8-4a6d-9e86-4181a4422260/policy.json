@@ -1,0 +1,142 @@
+{
+ "properties": {
+  "displayName": "StorageAccount-FirewallRules-DeployifNotExist",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "category": "Storage",
+   "createdBy": "09a818c6-bfc3-4927-9f0d-e2debaf05fac",
+   "createdOn": "2020-05-14T13:40:50.8671009Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Storage/storageAccounts"
+     },
+     {
+      "anyOf": [
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.32.1"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.32.2"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.32.3"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.32.4"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.32.5"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.194.133"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.194.134"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.194.135"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.194.136"
+        }
+       },
+       {
+        "not": {
+         "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
+         "contains": "32.66.194.137"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "append",
+    "details": [
+     {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+      "value": [
+       {
+        "value": "32.66.32.1",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.32.2",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.32.3",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.32.4",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.32.5",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.194.133",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.194.134",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.194.135",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.194.136",
+        "action": "Allow"
+       },
+       {
+        "value": "32.66.194.137",
+        "action": "Allow"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/57c0053c-b5f8-4a1e-8bb6-e8afa09f3b82/providers/Microsoft.Authorization/policyDefinitions/af9158d0-c4e8-4a6d-9e86-4181a4422260",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "af9158d0-c4e8-4a6d-9e86-4181a4422260"
+}
